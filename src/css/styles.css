@@ -1,25 +1,162 @@
-/**
-  |============================
-  | include css partials with
-  | default @import url()
-  |============================
-*/
-@import url('./reset.css');
-@import url('./vite-promo.css');
-@import url('./header.css');
+/* Загальні стилі */
+ul, ol {
+  list-style: none;
+}
 
-:root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
+a {
+  text-decoration: none;
+}
+
+p {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
   font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.04em;
+  color: black;
+}
 
-  color: #242424;
-  background-color: rgba(255, 255, 255, 0.87);
+/* Форма пошуку */
+.search-form {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  padding-top: 36px;
+}
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+.search-input {
+  min-width: 272px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.04em;
+  padding-left: 16px;
+  border: 1px solid #808080;
+  border-radius: 4px;
+}
+
+.search-input:hover {
+  border-color: black;
+}
+
+.search-btn {
+  background-color: #4E75FF;
+  min-width: 91px;
+  min-height: 40px;
+  border-radius: 8px;
+  border: none;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.04em;
+}
+
+.search-btn:hover {
+  background-color: #6C8CFF;
+}
+
+/* Галерея зображень*/
+.images-list {
+  justify-content: center;
+  margin: 0;
+  padding: 0;  
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-rows: 250px 250px 250px 250px;
+  grid-gap: 24px;
+  margin-top: 32px;
+}
+
+.images-item { 
+  border: 1px solid #808080;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.images-titles {
+  display: flex;
+  gap: 24px;
+  height: 42px;
+  padding-left: 15px;
+  align-items: center;
+  text-align: center;
+}
+
+/* Кнопка Load More */
+.load-more {
+  display: block;
+  width: 200px; /* Збільшує ширину кнопки */
+  padding: 15px; /* Збільшує внутрішні відступи */
+  font-size: 18px; /* Збільшує розмір шрифту */
+  background-color: #4E75FF;
+  color: white;
+  border: none;
+  border-radius: 8px; /* Додає заокруглення куточків */
+  cursor: pointer;
+  margin: 30px auto; /* Відступ зверху/знизу та автоматичний відступ з боків для центрування */
+  text-align: center; /* Центрує текст всередині кнопки */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Додає тінь до кнопки */
+}
+
+.load-more:hover {
+  background-color: #6C8CFF; /* Зміна кольору при наведенні */
+}
+
+/* Індикатор завантаження */
+.loader-container {
+  display: none; /* Початково приховано */
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px; /* Відступ від кнопки */
+}
+
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.loader span {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: black;
+}
+
+.loader div {
+  width: 48px;
+  height: 48px;
+  display: inline-block;
+  position: relative;
+}
+
+.loader div::after,
+.loader div::before {
+  content: '';
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  box-sizing: border-box;
+  animation: rotation 2s ease-in-out infinite;
+}
+
+.loader div::after {
+  animation-delay: 1s;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
