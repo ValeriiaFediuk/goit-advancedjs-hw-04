@@ -5,6 +5,7 @@ import FullReload from 'vite-plugin-full-reload';
 
 export default defineConfig(({ command }) => {
   return {
+    base: '/goit-advancedjs-hw-04/',
     define: {
       [command === 'serve' ? 'global' : '_global']: {},
     },
@@ -19,11 +20,11 @@ export default defineConfig(({ command }) => {
               return 'vendor';
             }
           },
-          entryFileNames: '[name]-[hash].js', // Виправлено формат імені файлів для унікальності
+          entryFileNames: '[name]-[hash].js', 
         },
       },
       outDir: '../dist',
-      emptyOutDir: true, // Очищення директорії перед збиранням
+      emptyOutDir: true, 
     },
     plugins: [
       injectHTML(),
